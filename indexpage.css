@@ -1,0 +1,434 @@
+:root {
+    --primary-color: #f7a600;      
+    --secondary-color: #f7d497;    
+    --text-dark: #333;            
+    --text-light: #fff;          
+    --bg-light: #f9f9f9;         
+    --bg-white: #fff;             
+    --header-height: 80px;        
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --hover-underline-color: #ffcc00; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    overflow-x: hidden; 
+}
+header {
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; 
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    height: var(--header-height);
+}
+
+header.sticky {
+    background-color: var(--bg-white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px 20px;
+}
+
+header.sticky .logo,
+header.sticky nav a,
+header.sticky .auth-buttons button a {
+    color: var(--text-dark); 
+}
+header.sticky .logo img {
+    max-height: 75px; 
+}
+
+header {
+    height: 100px; 
+}
+
+.logo {
+    display: flex;
+    color:var(--bg-white);
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif ;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.logo img {
+    height: 100%; 
+    max-height: 90px;
+    width: auto; 
+    vertical-align: middle;
+    transition: height 0.3s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+.auth-buttons button {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--text-light);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.auth-buttons button a {
+    color: var(--text-light); 
+    text-decoration: none;
+}
+
+.auth-buttons button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.line-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./college.jpg') no-repeat center center;
+    background-size: cover;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.line-content {
+    z-index: 1;
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+.line-section h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 5vw;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    line-height: 1.1;
+}
+
+.line-section p {
+    font-size: 2.5vw;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.about-campus {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--bg-white);
+}
+
+.about-campus h1 {
+    color: var(--primary-color);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 44px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.about-campus h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.campus-content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.campus-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    width: 48%;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.campus-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-color);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+
+.campus-card:hover::before {
+    transform: translateX(0);
+}
+
+.campus-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.campus-card h2 {
+    color: var(--primary-color);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.campus-card p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 40px 0;
+    box-shadow: 0 -4px 10px var(--shadow-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-column h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.footer-column p {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--hover-underline-color);
+}
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 20px;
+    }
+    .campus-card {
+        width: 47%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+    header.sticky {
+        padding: 10px 20px;
+    }
+    .logo {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .logo img { 
+        max-height: 80px; 
+    }
+    header.sticky .logo img { 
+        max-height: 60px; 
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    nav a {
+        padding: 5px 0;
+        display: block;
+    }
+    .auth-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .auth-buttons button {
+        margin: 5px;
+        width: calc(50% - 10px);
+    }
+    .hero-section {
+        height: 65vh;
+        min-height: 450px;
+        padding-top: var(--header-height);
+    }
+    .hero-section h1 {
+        font-size: 8vw;
+    }
+    .hero-section p {
+        font-size: 4vw;
+    }
+    .about-campus {
+        padding: 60px 20px;
+    }
+    .about-campus h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    .campus-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .campus-card {
+        width: 95%;
+        margin: 0 auto;
+        padding: 25px;
+    }
+    .campus-card h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .campus-card p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 22px;
+    }
+    .auth-buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    .hero-section h1 {
+        font-size: 10vw;
+    }
+    .hero-section p {
+        font-size: 5vw;
+    }
+    .about-campus h1 {
+        font-size: 30px;
+    }
+    .footer-columns {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+    .footer-column ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-column h3 {
+        margin-bottom: 10px;
+    }
+}
